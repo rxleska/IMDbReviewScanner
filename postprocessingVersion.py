@@ -132,9 +132,6 @@ for key in weightWords.keys():
     if ('a' not in posOfWord) or (key in s):
         removeKeys.append(key)
 
-with open('remKey.json', 'w', encoding="utf-8") as outfile:
-    outfile.write(removeKeys.__str__())
-
 for k in removeKeys:
     weightWords.pop(k)
 
