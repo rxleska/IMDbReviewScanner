@@ -70,7 +70,7 @@ curAjaxUrl = curhtml.split('data-ajaxurl=\"')[1].split('\"')[0]
 curUrl = ''
 count = 0
 while "data-key" in curhtml:
-        if count >= 39: # 1000 reviews 
+        if count >= 239: # 1000 reviews 
             print("Done scraping!")
             break
         count+=1
@@ -116,17 +116,27 @@ for revs in reviews:
 weightWords = {}
 for word in words:
     word = word.lower() # words to lowercase
-    syns = wn.synsets(word) # get list of words 
-    posOfWord = [] # list of part of speech of the word
-    if len(syns) != 0:
-        posOfWord.append(syns[0].pos()) # add parts of speech to arraylist
-    if ('a' in posOfWord) and (word not in s): # sort words, make weight dictionary
-        try:
-            weightWords.get(word)
-            weightWords[word] = weightWords.get(word) + 1
-        except:
-            weightWords[word] = 1
+    try:
+        weightWords.get(word)
+        weightWords[word] = weightWords.get(word) + 1
+    except:
+        weightWords[word] = 1
 
+#remove non-adjectives from the dictionary
+removeKeys = []
+for key in weightWords.keys():
+    syns = wn.synsets(key)
+    posOfWord = []
+    if len(syns) != 0:
+        posOfWord.append(syns[0].pos())
+    if ('a' not in posOfWord) or (key in s):
+        removeKeys.append(key)
+
+with open('remKey.json', 'w', encoding="utf-8") as outfile:
+    outfile.write(removeKeys.__str__())
+
+for k in removeKeys:
+    weightWords.pop(k)
 
 #sort dictonary by converting to arraylist then back to dictionary 
 sortedWords = sorted(weightWords.items(), key=lambda  x: x[1], reverse=True)

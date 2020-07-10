@@ -8,6 +8,6 @@ To create a movie word cloud
     2.2) Double click on wordnet
     2.3) Double click on stopwords
     2.4) Close NLTK downloader
-3.) Open Main.py and run it
+3.) Open postprocessingVersion.py and run it
 4.) type in movie name with spaces press enter
 5.) wait and the image will be displayed and saved as a jpg with the name of the movie search terms

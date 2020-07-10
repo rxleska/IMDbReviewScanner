@@ -1,0 +1,29 @@
+This is the page of the results of testing the time saved by postprocessingVersion.py compared to main.py
+The time saved is mesured in seconds and in a precent that is equal to the change divided by the longer time
+This was all timed with a stop watch so times are accurate to around 0.5 seconds from when I pressed enter to 
+when I saw the window appear to display the word cloud 
+
+bee movie from entering name of movie 301 reviews
+    -post processing times: 15.3s, 14.92s, 14.61s;  ave time: 14.92
+    -regular version times: 16.48s, 15.48s, 15.37s; ave time: 15.77
+        +time saved 0.85 seconds 5.57%
+
+the dark knight from entering name of movie 1000 reviews
+    -post processing times: 31.39s, 32.05s, 32.07s; ave time: 31.84
+    -regular version times: 35.72s, 34.76s 34.58s;  ave time: 35.02
+        +time saved 3.18 seconds 9.99%
+
+the dark knight from entering name of movie 5996 reviews
+    -post processing times: 3:04.56, 3:08.73, 3:03.82; ave time: 3:05.70
+    -regular version times: 3:31.03, 3:30.51, 3:29.88; ave time: 3:30.47
+        +time saved 24.77 seconds 13.33%
+
+
+google sheets chart
+movie	Bee movie		dark knight 1000 reviews		dark knight 5996 reviews	
+test	regular	post	regular	post	regular	post
+1	16.48	15.3	35.72	31.39	211.03	184.56
+2	15.48	14.92	34.76	32.05	210.51	188.73
+3	15.37	14.61	34.58	32.07	209.88	183.82
+average	15.77666667	14.94333333	35.02	31.83666667	210.4733333	185.7033333
+time saved #/%	0.8333333333	0.05576622797	3.183333333	0.09998952989	24.77	0.1333847894
