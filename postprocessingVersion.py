@@ -25,6 +25,7 @@ s = uWords.split(',')
 # base for search on imdb https://www.imdb.com/find?q=the+dark+knight&ref_=nv_sr_sm
 # result_text is the td class 
 searchName = input('Type title of movie: ')
+titleName = searchName
 searchName = searchName.replace(" ", "+")
 searchUrl = 'https://www.imdb.com/find?q=' + searchName + '&ref_=nv_sr_sm'
 print("Search Url: " + searchUrl)
@@ -70,7 +71,7 @@ curAjaxUrl = curhtml.split('data-ajaxurl=\"')[1].split('\"')[0]
 curUrl = ''
 count = 0
 while "data-key" in curhtml:
-        if count >= 239: # 1000 reviews 
+        if count >= 39: # 1000 reviews 
             print("Done scraping!")
             break
         count+=1
@@ -149,5 +150,6 @@ wordcloud = WordCloud(font_path=None, width=1920, height=1080,stopwords=STOPWORD
 #plot words 
 plt.imshow(wordcloud, interpolation='bilinear')
 plt.axis('off')
+plt.title(titleName)
 plt.savefig(searchName+".jpg" )
 plt.show()
